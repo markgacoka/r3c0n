@@ -1,14 +1,13 @@
-from setuptools import setup, find_packages
-import os
+import pathlib
+from setuptools import setup
 
-def read_file(filename):
-    with open(os.path.join(os.path.dirname(__file__), filename)) as file:
-        return file.read()
+# The directory containing this file
+PATH = pathlib.Path(__file__).parent
 
-with open('requirements.txt') as f:
-    required = f.read().splitlines()
+# The text of the README file
+README = (PATH / "README.md").read_text()
 
-VERSION="0.0.1"
+VERSION="1.0.7"
 DESCRIPTION="A tool for performing reconnaissance on web targets in Python."
 LONG_DESCRIPTION="A tool for finding subdomain and directory information for various web targets."
 
@@ -20,16 +19,21 @@ setup(
     author='Gacoka Mbui',
     author_email='<markgacoka@gmail.com>',
     description=DESCRIPTION,
-    long_description=read_file('README.md'),
+    long_description=README,
     long_description_content_type='text/markdown',
     url="https://github.com/markgacoka/r3c0n",
     download_url="https://github.com/markgacoka/r3c0n/releases",
-    packages=find_packages('r3c0n'),
-    install_requires=required,
-    py_modules=['r3c0n'],
+    packages=['r3c0n', 'scripts', 'utils'],
+    include_package_data=True,
+    install_requires=['pathlib', 'yarl==1.7.2'],
+    entry_points={
+        "console_scripts": [
+            "r3c0n=r3c0n.__main__:main"
+        ]
+    },
     keywords='cybersecurity, reconnaissance, scanning, automation',
     classifiers=[
-        "Development Status :: 1 - Planning",
+        "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
