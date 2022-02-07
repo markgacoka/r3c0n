@@ -18,6 +18,18 @@ def GET_UA():
     return random.choice(uastrings)
 
 def anubis_script(domain):
+    """Returns the list of subdomains from the Anuibis Database.
+
+    Args:
+        domain: An inscope domain in which the subdomains are required.
+    Returns:
+        A list of subdomains extracted from the Anubis database.
+    Raises:
+        RequestError: Raised on wrong request type.
+        HTTPError: Raised on malformed HTTP request.
+        ConnectionError: Raised when fails to connect to the server.
+        TimeoutError: Raised when request takes too long to come back.
+    """
     anubis = []
     headers = {"User-Agent": GET_UA(), "Content-Type": "application/json"}
     try:

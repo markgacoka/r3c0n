@@ -5,6 +5,9 @@ def read_file(filename):
     with open(os.path.join(os.path.dirname(__file__), filename)) as file:
         return file.read()
 
+with open('requirements.txt') as f:
+    required = f.read().splitlines()
+
 VERSION="0.0.1"
 DESCRIPTION="A tool for performing reconnaissance on web targets in Python."
 LONG_DESCRIPTION="A tool for finding subdomain and directory information for various web targets."
@@ -22,13 +25,13 @@ setup(
     url="https://github.com/markgacoka/r3c0n",
     download_url="https://github.com/markgacoka/r3c0n/releases",
     packages=find_packages('r3c0n'),
-    install_requires=[''],
+    install_requires=required,
     py_modules=['r3c0n'],
     keywords='cybersecurity, reconnaissance, scanning, automation',
     classifiers=[
         "Development Status :: 1 - Planning",
         "Intended Audience :: Developers",
-        "License :: OSI Approved :: MIT",
+        "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
         "Programming Language :: Python :: 3",
         "Topic :: Security"

@@ -1,5 +1,6 @@
-from scripts.anubis import anubis_script
 import yarl
+from typing import List
+from scripts.anubis import anubis_script
 
 class Clean:
     def cleanup(subdomain_lst: List[str]) -> List[str]:
