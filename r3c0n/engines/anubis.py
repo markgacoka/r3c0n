@@ -5,7 +5,7 @@ class Anubis:
     def __init__(self, domain):
         self.domain = domain
 
-    def subdomains(domain):
+    def anubis_script(self, domain):
         """Returns the list of subdomains from the Anuibis Database.
 
         Args:
@@ -42,3 +42,7 @@ class Anubis:
             raise ("Timeout Error:", errt)
         else:
             return anubis
+
+    def subdomains(self):
+        subdomain_result = self.anubis_script(self.domain)
+        return subdomain_result

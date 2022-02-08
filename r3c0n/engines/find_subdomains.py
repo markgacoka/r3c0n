@@ -1,17 +1,14 @@
 import requests
 from r3c0nutils.user_agent import GET_UA
 from bs4 import BeautifulSoup
-from requests.packages.urllib3.exceptions import InsecureRequestWarning
-
-requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 class FindSubdomains:
     def __init__(self, domain):
         self.domain = domain
         self.subdomain_lst = []
 
-    def subdomains(self, domain):
-        """Returns the list of subdomains from the Anuibis Database.
+    def findsubdomains_script(self, domain):
+        """Returns the list of subdomains from the FindSubdomain website.
 
         Args:
             domain: An inscope domain in which the subdomains are required.
@@ -46,3 +43,7 @@ class FindSubdomains:
             raise ("Timeout Error:", errt) 
         else:
             return self.subdomain_lst
+
+    def subdomains(self):
+        subdomain_result = self.findsubdomains_script(self.domain)
+        return subdomain_result
