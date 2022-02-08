@@ -7,7 +7,7 @@ PATH = pathlib.Path(__file__).parent
 # The text of the README file
 README = (PATH / "README.md").read_text()
 
-VERSION="1.1.1"
+VERSION="1.1.2"
 DESCRIPTION="A tool for performing reconnaissance on web targets in Python."
 LONG_DESCRIPTION="A tool for finding subdomain and directory information for various web targets."
 
@@ -25,7 +25,7 @@ setup(
     download_url="https://github.com/markgacoka/r3c0n/releases",
     packages=['r3c0n', 'r3c0nutils', 'r3c0n.engines'],
     include_package_data=True,
-    install_requires=['pathlib', 'yarl==1.7.2'],
+    install_requires=['beautifulsoup4', 'requests', 'yarl==1.7.2'],
     entry_points={
         "console_scripts": [
             "r3c0n=r3c0n.__main__:main"
