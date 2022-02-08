@@ -2,6 +2,9 @@ import yarl
 from typing import List
 
 class Clean:
+    def __init__(self, subdomain_lst):
+        self.subdomain_lst = subdomain_lst
+
     def cleanup(subdomain_lst: List[str]) -> List[str]:
         """Returns a standardized version of subdomains
 

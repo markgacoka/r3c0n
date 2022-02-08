@@ -32,15 +32,14 @@ class FindSubdomains:
                         self.subdomain_lst.append(link.string.strip())
                 except KeyError as errk:
                     return []
-            return self.subdomain_lst
         except requests.exceptions.RequestException as err:
-            raise ("Request Exception:", err)
+            raise Exception("Request Exception:", err)
         except requests.exceptions.HTTPError as errh:
-            raise ("HTTP Error:", errh)
+            raise Exception("HTTP Error:", errh)
         except requests.exceptions.ConnectionError as errc:
-            raise ("Connection Error:", errc)
+            raise Exception("Connection Error:", errc)
         except requests.exceptions.Timeout as errt:
-            raise ("Timeout Error:", errt) 
+            raise Exception("Timeout Error:", errt) 
         else:
             return self.subdomain_lst
 
