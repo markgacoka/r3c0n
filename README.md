@@ -1,5 +1,5 @@
 # r3c0n
-A tool for performing reconnaissance on web targets in Python
+A tool for performing reconnaissance on web targets in Python.
 
 ### Description
 
@@ -14,12 +14,12 @@ python tests/test_cleanup.py
 ```
 
 ### Usage
-```
-from r3c0n import subdomain_scan as scanner
+```python
+from r3c0n.engines import anubis
 
-in_scope_domains = ['https://example.com']
-subdomains = scanner.all(in_scope_domains)
+domain = 'coda.io'
+subdomains = anubis.Anubis.subdomains(domain)
 print(subdomains)
 
-> ['blog.example.com', 'auth.example.com', 'prod-cms.example.com']
+> ['www.coda.io', 'dev.coda.io', 'blog.coda.io', 'cdn.coda.io', 'staging.coda.io', 'help.coda.io', 'data.coda.io', 'go.coda.io', 'community.coda.io', 'status.coda.io', 'auth.coda.io', 'bounce.coda.io']
 ```

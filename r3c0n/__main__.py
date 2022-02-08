@@ -1,6 +1,6 @@
 import sys
-from scripts import anubis
-import utils.viewer as viewer
+from engines import anubis
+import r3c0nutils.viewer as viewer
 
 def main():
     if len(sys.argv) > 1:
