@@ -8,9 +8,15 @@ The tool is designed to integrate into your automation workflow for the reconnai
 
 | Engine      | Importation | API Key |
 | ----------- | ----------- | ------- | 
-| All engines | from r3c0n.engines.all import All | Free (default) 
-| Anubis      | from r3c0n.engine.anubis import Anubis | Free |
-| HackerTarget| from r3c0n.engine.hacker_target import HackerTarget | Free |
+| All engines | `from r3c0n.engines.all import All` | Free (default) |
+| Anubis      | `from r3c0n.engine.anubis import Anubis` | Free |
+| HackerTarget| `from r3c0n.engine.hacker_target import HackerTarget` | Free |
+| OpenThreat  | `from r3c0n.engine.open_threat import OpenThreat` | Free |
+| ProjectSonar| `from r3c0n.engine.project_sonar import ProjectSonar` | Free |
+| Riddler     | `from r3c0n.engine.riddler import Riddler` | Paid |
+| Shodan      | `from r3c0n.engine.shodan import Shodan` | Free Trial/Paid |
+| ThreatCrowd | `from r3c0n.engine.threatcrowd import ThreatCrowd` | Free |
+| VirusTotal  | `from r3c0n.engine.virustotal import VirusTotal` | Free/Paid |
 
 More examples below at Usage.
 

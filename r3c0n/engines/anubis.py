@@ -4,6 +4,7 @@ from r3c0nutils.user_agent import GET_UA
 class Anubis:
     def __init__(self, domain):
         self.domain = domain
+        self.subdomain_lst = []
 
     def anubis_script(self, domain):
         """Returns the list of subdomains from the Anuibis Database.
@@ -18,7 +19,6 @@ class Anubis:
             ConnectionError: Raised when fails to connect to the server.
             TimeoutError: Raised when request takes too long to come back.
         """
-        anubis = []
         headers = {"User-Agent": GET_UA(), "Content-Type": "application/json"}
         try:
             res = requests.get("https://jldc.me/anubis/subdomains/" + domain, headers=headers, timeout=10)
@@ -30,18 +30,17 @@ class Anubis:
                     res = res[1:]
                 if id == len(stripped_response)-1:
                     res = res[:-1]
-                anubis.append(res)
-            return anubis
+                self.subdomain_lst.append(res)
         except requests.exceptions.RequestException as err:
-            raise ("Request Exception:", err)
+            raise Exception("Request Exception:", err)
         except requests.exceptions.HTTPError as errh:
-            raise ("HTTP Error:", errh)
+            raise Exception("HTTP Error:", errh)
         except requests.exceptions.ConnectionError as errc:
-            raise ("Connection Error:", errc)
+            raise Exception("Connection Error:", errc)
         except requests.exceptions.Timeout as errt:
-            raise ("Timeout Error:", errt)
+            raise Exception("Timeout Error:", errt)
         else:
-            return anubis
+            return self.subdomain_lst
 
     def subdomains(self):
         subdomain_result = self.anubis_script(self.domain)
