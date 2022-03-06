@@ -1,5 +1,5 @@
 import sys
-from engines import anubis
+from r3c0nutils.engines import anubis
 import r3c0nutils.viewer as viewer
 
 def main():
