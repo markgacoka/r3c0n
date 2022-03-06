@@ -1,5 +1,5 @@
 import unittest
-from r3c0n import Clean as clean
+from r3c0nutils.formatter import Clean as clean
 
 class TestCleanup(unittest.TestCase):
     """Test the formatting of different subdomain outputs from engines.
@@ -16,10 +16,11 @@ class TestCleanup(unittest.TestCase):
         Test the protocol prefix in the output
         """
         example_list = ['https://example.com', 'http://example.com']
-        result_1 = clean.cleanup(example_list[0])
-        result_2 = clean.cleanup(example_list[1])
+        example_list_2 = ['https://example.com', 'https://example2.com', 'https://example.com', 'http://example3.com']
+        result_1 = clean.cleanup(example_list)
+        result_2 = clean.cleanup(example_list_2)
         self.assertEqual(result_1, ['example.com'])
-        self.assertEqual(result_2, ['example.com'])
+        self.assertEqual(result_2, ['example.com', 'example2.com', 'example3.com'])
 
 if __name__ == '__main__':
     unittest.main()

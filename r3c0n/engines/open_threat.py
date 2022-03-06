@@ -31,5 +31,8 @@ class OpenThreat:
 
     def subdomains(self):
         subdomain_result = self.openthreat_script(self.domain)
-        subdomain_result = Clean(subdomain_result)
-        return subdomain_result
+        if isinstance(subdomain_result, list) and len(subdomain_result) > 0:
+            subdomain_result = Clean(subdomain_result)
+            return subdomain_result
+        else:
+            return []
