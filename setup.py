@@ -7,7 +7,7 @@ PATH = pathlib.Path(__file__).parent
 # The text of the README file
 README = (PATH / "README.md").read_text()
 
-VERSION="1.2.3"
+VERSION="1.2.4"
 DESCRIPTION="A tool for performing reconnaissance on web targets in Python."
 LONG_DESCRIPTION="A tool for finding subdomain and directory information for various web targets."
 
