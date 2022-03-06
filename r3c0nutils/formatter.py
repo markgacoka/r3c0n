@@ -37,4 +37,4 @@ class Clean:
                     subdomain_yarl = yarl.URL(subdomain_full)
                     if subdomain_yarl.path_qs != '' or subdomain_yarl.path_qs != '/':
                         clean_lst[idx] = str(subdomain_yarl.origin())[7:].strip()
-        return list(filter(None, set(clean_lst)))
+        return sorted(list(filter(None, set(clean_lst))))
